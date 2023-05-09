@@ -14,9 +14,9 @@ public class Dado {
     metodo para generar un valor aleatorio para asignar una cara posteriormente
     @return numero entre 1 y 6)
      */
-    public int getCara() {
+    public static int getCara() {
         Random aleatorio = new Random();
-        cara = aleatorio.nextInt(6)+1;
+        int cara = aleatorio.nextInt(6)+1;
         return cara;
     }
 }

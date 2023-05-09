@@ -2,8 +2,10 @@ package GeekOutMaster;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class GUIGridBagLayout extends JFrame {
+public class GUIGridBagLayout extends JFrame{
     public static final String MENSAJE_INICIO="El objetivo de este juego es conseguir la mayor \n"
             + "cantidad de puntos juntando dados cuya cara\n"
             + "visible sea la cara 42";
@@ -13,8 +15,7 @@ public class GUIGridBagLayout extends JFrame {
     private JPanel panelDadosActivos, panelDadosInactivos, panelDadosUsados;
     private ImageIcon imagenDado;
     private JTextArea mensajesSalida, resultadosDados;
-
-    //private Escucha escucha;
+    private Escucha escucha;
     private ModeloGOM modeloGOM;
 
     public GUIGridBagLayout(){
@@ -33,7 +34,7 @@ public class GUIGridBagLayout extends JFrame {
         this.getContentPane().setLayout(new GridBagLayout());
         GridBagConstraints constraints = new GridBagConstraints();
 
-        //escucha = new Escucha(); //constructor
+        escucha = new Escucha(); //constructor
         modeloGOM = new ModeloGOM();
         headerProject = new Title("Geek Out Master", Color.BLACK);
         constraints.gridx = 0;
@@ -43,7 +44,7 @@ public class GUIGridBagLayout extends JFrame {
         this.add(headerProject,constraints);
 
         ayuda = new JButton("?");
-        //ayuda.addActionListener(escucha);
+        ayuda.addActionListener(escucha);
         constraints.gridx = 0;
         constraints.gridy = 1;
         constraints.gridwidth = 1;
@@ -52,7 +53,7 @@ public class GUIGridBagLayout extends JFrame {
         this.add(ayuda,constraints);
 
         salir = new JButton("Salir");
-        //salir = addActionListener(escucha);
+        salir.addActionListener(escucha);
         constraints.gridx = 2;
         constraints.gridy = 1;
         constraints.gridwidth = 1;
@@ -113,7 +114,7 @@ public class GUIGridBagLayout extends JFrame {
         this.add(panelDadosActivos,constraints);
 
         lanzarDados = new JButton("Lanzar dados");
-        //lanzarDados = addActionListener(escucha);
+        lanzarDados.addActionListener(escucha);
         constraints.gridx = 1;
         constraints.gridy = 4;
         constraints.gridwidth = 1;
@@ -122,7 +123,7 @@ public class GUIGridBagLayout extends JFrame {
         this.add(lanzarDados,constraints);
 
         usarDado = new JButton("Usar dado");
-        //usarDado = addActionListener(escucha);
+        usarDado.addActionListener(escucha);
         constraints.gridx = 1;
         constraints.gridy = 4;
         constraints.gridwidth = 1;
@@ -162,14 +163,13 @@ public class GUIGridBagLayout extends JFrame {
     }
         /*
     ---Controlador---
-
-    private class Escucha implements ActionListener{
+        */
+    private class Escucha implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
 
-            if(e.getSource()==lanzarDados){
-
-                modeloGOM.tirarDado();
+            if(e.getSource() == lanzarDados){
+                //modeloGOM.tirarDado();
                 int[] caras = modeloGOM.getCaras();
                 imagenDado = new ImageIcon(getClass().getResource("/resources/"+caras[0]+".png"));
                 dado1.setIcon(imagenDado);
@@ -193,17 +193,15 @@ public class GUIGridBagLayout extends JFrame {
                 dado10.setIcon(imagenDado);
 
             }else{
-                if(e.getSource()==ayuda){
+                if(e.getSource() == ayuda){
                     JOptionPane.showMessageDialog(null,MENSAJE_INICIO);
                 }else{
-                    System.exit(0)
+                    System.exit(0);
                 }
             }
 
-            resultadosDados.setText(ModeloGOM.getEstadotoString()[0]);
-            mensajesSalida.setText(ModeloGOM.getEstadotoString()[1]);
-
+            //resultadosDados.setText(ModeloGOM.getEstadotoString()[0]);
+            //mensajesSalida.setText(ModeloGOM.getEstadotoString()[1]);
         }
     }
-    */
 }
