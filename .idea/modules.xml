@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/ProyectoPOE.iml" filepath="$PROJECT_DIR$/ProyectoPOE.iml" />
+      <module fileurl="file://$PROJECT_DIR$/GUITemplate.iml" filepath="$PROJECT_DIR$/GUITemplate.iml" />
     </modules>
   </component>
 </project>
