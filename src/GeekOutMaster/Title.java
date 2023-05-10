@@ -5,6 +5,7 @@ import java.awt.*;
 /*
 Etiqueta para nombrar nuestro juego "Geek Out Master"
 @authors Jr Cantor Arevalo junior.cantor@correounivalle.edu.co
+@authors Kevin Jordan Alzate kevin.jordan@correounivalle.edu.co
 @version v.1.0.0 date: 05/05/2023
  */
 public class Title extends JLabel {
